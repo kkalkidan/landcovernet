@@ -1,0 +1,6 @@
+pytorch>=1.1
+torchvision
+numpy
+tqdm
+tensorboard>=1.14
+radiant-mlhub
