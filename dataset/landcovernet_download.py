@@ -103,11 +103,10 @@ def download_labels_and_source(item, assets=None, output_dir='./data'):
             for _ in executor.map(lambda triplet: download(*triplet), download_args):
                 pbar.update(1)
 
-def get_collections(no_collections=1):
+def get_collections(no_collections):
     collection_id = 'ref_landcovernet_v1_labels'
-    no_collections = 5
-    collections = client.list_collection_items(collection_id, limit=no_collections)
-    return collections
+    if(no_collections): return client.list_collection_items(collection_id, limit=no_collections)
+    return client.list_collection_items(collection_id)
 
 def download_dataset(path, assets, no_cols=1):
     collections = get_collections(no_cols)
